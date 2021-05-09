@@ -2,17 +2,20 @@
   <h1>Giphy search app</h1>
   <SearchBar />
   <GiphyContainer />
+  <Favourite />
 </template>
 
 <script>
 import GiphyContainer from './components/GiphyContainer.vue'
 import SearchBar from './components/SearchBar.vue'
+import Favourite from './components/Favourite.vue'
 
 export default {
   name: 'App',
   components: {
     GiphyContainer,
-    SearchBar
+    SearchBar,
+    Favourite
   }
 }
 </script>
