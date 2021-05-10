@@ -1,7 +1,7 @@
 <template>
   <div class="searchWrapper">
-    <form>
-      <input type="text" name="search" id="search-bar">
+    <form @submit="handleSearch">
+      <input @input="handleInputValue" type="text" name="search" id="search-bar">
       <button type="submit">Search</button>
     </form>
   </div>
@@ -9,11 +9,27 @@
 
 <script>
 export default {
-  name: 'SearchBar',
-}
+  name: "SearchBar",
+  methods: {
+    handleSearch(e) {
+      e.preventDefault();
+      console.log(e.target[0].value);
+      this.$store.dispatch("getInput", e.target[0].value);
+    },
+    handleInputValue(e) {
+      console.log(e.target.value);
+
+      return e.target.value;
+    },
+  },
+  data() {
+    return {
+      search: { text: "" },
+    };
+  },
+};
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
   margin: 40px 0 0;

@@ -16,6 +16,9 @@ export default createStore({
         console.log(response.data.data)
         commit('SET_POSTS', response.data.data)
       })
+    },
+    getInput({ commit }, input) {
+      commit('SET_POSTS', input)
     }
   },
   getters: {
@@ -23,6 +26,9 @@ export default createStore({
   mutations: {
     SET_POSTS(state, data) {
       state.data = data
+    },
+    SET_INPUT(state, input) {
+      state.input = input
     }
   }
 })
